@@ -2,16 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Team Sieron</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 <div class="container">
+    <div class="mobileMenu center">
+        <button class="mobileMenu__close" onclick="closeMenu()">
+            &times;
+        </button>
+
+        <div class="mobileMenu__inner">
+            <img class="mobileMenu__logo" src="./assets/logo-contact.svg" alt="logo" />
+
+            <a href="#service" onclick="closeMenu()" class="mobileMenu__item">
+                Service
+            </a>
+            <a href="#portfolio" onclick="closeMenu()" class="mobileMenu__item">
+                Portfolio
+            </a>
+            <a href="#kontakt" onclick="closeMenu()" class="mobileMenu__item">
+                Kontakt
+            </a>
+        </div>
+    </div>
+
     <div class="hero">
         <video class="hero__video"
                loop
                muted
                autoplay
+               playsinline
                src="./assets/video.mp4">
 
         </video>
@@ -22,11 +44,15 @@
                 <img class="img" src="./assets/logo.svg" alt="logo" />
             </a>
 
-            <div class="hero__top__menu flex">
+            <div class="hero__top__menu flex d-desktop">
                 <a class="hero__top__menu__item" href="#service">Service</a>
                 <a class="hero__top__menu__item" href="#portfolio">Portfolio</a>
                 <a class="hero__top__menu__item hero__top__menu__item--contact" href="#kontakt">Kontakt</a>
             </div>
+
+            <button class="btn--menu d-mobile" onclick="openMenu()">
+                <img class="img" src="./assets/menu.svg" alt="menu" />
+            </button>
         </div>
     </div>
 
