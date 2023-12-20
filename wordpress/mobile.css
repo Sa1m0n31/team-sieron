@@ -721,8 +721,3 @@ button, a {
         padding: 15px;
     }
 }
-
-label > span {
-    width: 100% !important;
-    display: block;
-}

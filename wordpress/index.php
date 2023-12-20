@@ -47,25 +47,23 @@ get_header();
                 <img class="main__box__logo" src="<?php echo get_bloginfo("stylesheet_directory") . "/assets/logo-yellow.png"; ?>" alt="logo" />
                 <div class="main__box__text">
                     <p>
-                        Unser Unternehmen bietet hochqualifizierte Arbeitskräfte
-                        für den Bau von Messeständen an.
+                        <?php echo get_field('paragraph_1', 14); ?>
                     </p>
                     <p>
-                        Mit flexiblen Abrechnungsoptionen ermöglichen wir Kunden die Auswahl zwischen stundenbasierter Abrechnung oder einer Pauschalgebühr, um ihren individuellen Anforderungen gerecht zu werden.
+                        <?php echo get_field('paragraph_2', 14); ?>
                     </p>
                 </div>
                 <div class="main__box__boxes center">
                     <div class="main__box__boxes__item center">
                         <img class="img" src="<?php echo get_bloginfo("stylesheet_directory") . "/assets/icon1.svg"; ?>" alt="icon" />
                         <p class="main__box__boxes__item__text">
-                            Stündliche
-                            Abrechnung
+                            <?php echo get_field('block_1_text', 14); ?>
                         </p>
                     </div>
                     <div class="main__box__boxes__item center">
                         <img class="img" src="<?php echo get_bloginfo("stylesheet_directory") . "/assets/icon2.svg"; ?>" alt="icon" />
                         <p class="main__box__boxes__item__text">
-                            Pauschalgebühr
+                            <?php echo get_field('block_2_text', 14); ?>
                         </p>
                     </div>
                 </div>
@@ -84,14 +82,10 @@ get_header();
                     <img class="services__item__img" src="<?php echo get_bloginfo("stylesheet_directory") . "/assets/1.gif"; ?>" alt="item" />
                     <div class="services__item__content">
                         <h2 class="services__item__content__title">
-                            Montagen
+                            <?php echo get_field('service_title_1', 14); ?>
                         </h2>
                         <p class="services__item__content__text">
-                            Unsere Experten führen fachgerechte Montagen von
-                            Messeständen durch, gewährleisten höchste Qualität
-                            und pünktliche Fertigstellung. Verlassen Sie sich auf
-                            unsere Kompetenz für eine reibungslose Umsetzung
-                            Ihrer Projekte.
+                            <?php echo get_field('service_text_1', 14); ?>
                         </p>
                     </div>
                 </div>
@@ -99,13 +93,10 @@ get_header();
                     <img class="services__item__img" src="<?php echo get_bloginfo("stylesheet_directory") . "/assets/2.gif"; ?>" alt="item" />
                     <div class="services__item__content">
                         <h2 class="services__item__content__title">
-                            Demontagen
+                            <?php echo get_field('service_title_2', 14); ?>
                         </h2>
                         <p class="services__item__content__text">
-                            Unsere erfahrenen Teams bieten zuverlässige
-                            Demontage-Dienstleistungen für Messestände an,
-                            um einen effizienten Rückbau nach Veranstaltungen
-                            zu gewährleisten.
+                            <?php echo get_field('service_text_2', 14); ?>
                         </p>
                     </div>
                 </div>
@@ -113,13 +104,10 @@ get_header();
                     <img class="services__item__img" src="<?php echo get_bloginfo("stylesheet_directory") . "/assets/3.gif"; ?>" alt="item" />
                     <div class="services__item__content">
                         <h2 class="services__item__content__title">
-                            Schnelle Crew
+                            <?php echo get_field('service_title_3', 14); ?>
                         </h2>
                         <p class="services__item__content__text">
-                            Unser erfahrenes Personal steht Ihnen zur Verfügung,
-                            um Ihre Messestand-Projekte effizient umzusetzen.
-                            Wir bieten flexible Arbeitskräfte mit Expertise,
-                            um Ihre Anforderungen bestmöglich zu erfüllen.
+                            <?php echo get_field('service_text_3', 14); ?>
                         </p>
                     </div>
                 </div>
@@ -127,13 +115,10 @@ get_header();
                     <img class="services__item__img" src="<?php echo get_bloginfo("stylesheet_directory") . "/assets/4.gif"; ?>" alt="item" />
                     <div class="services__item__content">
                         <h2 class="services__item__content__title">
-                            Sicherheit
+                            <?php echo get_field('service_title_4', 14); ?>
                         </h2>
                         <p class="services__item__content__text">
-                            Unsere höchste Priorität ist die Sicherheit. Wir setzen
-                            auf strenge Sicherheitsstandards, um einen geschützten
-                            Arbeitsplatz für unser Personal und eine risikofreie
-                            Umgebung für unsere Kunden zu gewährleisten.
+                            <?php echo get_field('service_text_4', 14); ?>
                         </p>
                     </div>
                 </div>
@@ -146,36 +131,39 @@ get_header();
             </h3>
 
             <div class="portfolio__top">
-                <div class="portfolio__item flex">
-                    <figure class="portfolio__item__img">
-                        <img class="img" src="<?php echo get_bloginfo("stylesheet_directory") . "/assets/portfolio1.jpg"; ?>" alt="portfolio" />
-                    </figure>
+                <?php
+                    $args = array(
+                        'post_type' => 'post',
+                        'posts_per_page' => 2
+                    );
 
-                    <div class="portfolio__item__content">
-                        <h4 class="portfolio__item__content__title">
-                            Ein Beispiel für einen
-                            Messestand
-                        </h4>
-                        <h5 class="portfolio__item__content__subtitle">
-                            25 m<sup>2</sup>
-                        </h5>
-                    </div>
-                </div>
-                <div class="portfolio__item flex">
-                    <figure class="portfolio__item__img">
-                        <img class="img" src="<?php echo get_bloginfo("stylesheet_directory") . "/assets/portfolio1.jpg"; ?>" alt="portfolio" />
-                    </figure>
+                    $post_query = new WP_Query($args);
 
-                    <div class="portfolio__item__content">
-                        <h4 class="portfolio__item__content__title">
-                            Ein Beispiel für einen
-                            Messestand
-                        </h4>
-                        <h5 class="portfolio__item__content__subtitle">
-                            140 m<sup>2</sup>
-                        </h5>
-                    </div>
-                </div>
+                    if($post_query->have_posts() ) {
+                        while($post_query->have_posts() ) {
+                            $post_query->the_post();
+                            $post_id = get_the_ID();
+                            $category_object = get_the_category($post_id);
+                            $category_name = $category_object[0]->name;
+                            ?>
+                            <div class="portfolio__item flex">
+                                <figure class="portfolio__item__img">
+                                    <img class="img" src="<?php echo get_field('image'); ?>" alt="portfolio" />
+                                </figure>
+
+                                <div class="portfolio__item__content">
+                                    <h4 class="portfolio__item__content__title">
+                                        <?php echo get_field('title'); ?>
+                                    </h4>
+                                    <h5 class="portfolio__item__content__subtitle">
+                                        <?php echo get_field('meters'); ?> m<sup>2</sup>
+                                    </h5>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    }
+                ?>
 
                 <button class="btn btn--showMore" onclick="showMorePortfolio()">
                     Mehr sehen...
@@ -183,66 +171,39 @@ get_header();
             </div>
 
             <div class="portfolio__all">
-                <div class="portfolio__item flex">
-                    <figure class="portfolio__item__img">
-                        <img class="img" src="<?php echo get_bloginfo("stylesheet_directory") . "/assets/portfolio1.jpg"; ?>" alt="portfolio" />
-                    </figure>
+                <?php
+                $args = array(
+                    'post_type' => 'post',
+                    'posts_per_page' => 100
+                );
 
-                    <div class="portfolio__item__content">
-                        <h4 class="portfolio__item__content__title">
-                            Ein Beispiel für einen
-                            Messestand
-                        </h4>
-                        <h5 class="portfolio__item__content__subtitle">
-                            25 m<sup>2</sup>
-                        </h5>
-                    </div>
-                </div>
-                <div class="portfolio__item flex">
-                    <figure class="portfolio__item__img">
-                        <img class="img" src="<?php echo get_bloginfo("stylesheet_directory") . "/assets/portfolio1.jpg"; ?>" alt="portfolio" />
-                    </figure>
+                $post_query = new WP_Query($args);
 
-                    <div class="portfolio__item__content">
-                        <h4 class="portfolio__item__content__title">
-                            Ein Beispiel für einen
-                            Messestand
-                        </h4>
-                        <h5 class="portfolio__item__content__subtitle">
-                            140 m<sup>2</sup>
-                        </h5>
-                    </div>
-                </div>
-                <div class="portfolio__item flex">
-                    <figure class="portfolio__item__img">
-                        <img class="img" src="<?php echo get_bloginfo("stylesheet_directory") . "/assets/portfolio1.jpg"; ?>" alt="portfolio" />
-                    </figure>
+                if($post_query->have_posts() ) {
+                    while($post_query->have_posts() ) {
+                        $post_query->the_post();
+                        $post_id = get_the_ID();
+                        $category_object = get_the_category($post_id);
+                        $category_name = $category_object[0]->name;
+                        ?>
+                        <div class="portfolio__item flex">
+                            <figure class="portfolio__item__img">
+                                <img class="img" src="<?php echo get_field('image'); ?>" alt="portfolio" />
+                            </figure>
 
-                    <div class="portfolio__item__content">
-                        <h4 class="portfolio__item__content__title">
-                            Ein Beispiel für einen
-                            Messestand
-                        </h4>
-                        <h5 class="portfolio__item__content__subtitle">
-                            25 m<sup>2</sup>
-                        </h5>
-                    </div>
-                </div>
-                <div class="portfolio__item flex">
-                    <figure class="portfolio__item__img">
-                        <img class="img" src="<?php echo get_bloginfo("stylesheet_directory") . "/assets/portfolio1.jpg"; ?>" alt="portfolio" />
-                    </figure>
-
-                    <div class="portfolio__item__content">
-                        <h4 class="portfolio__item__content__title">
-                            Ein Beispiel für einen
-                            Messestand
-                        </h4>
-                        <h5 class="portfolio__item__content__subtitle">
-                            140 m<sup>2</sup>
-                        </h5>
-                    </div>
-                </div>
+                            <div class="portfolio__item__content">
+                                <h4 class="portfolio__item__content__title">
+                                    <?php echo get_field('title'); ?>
+                                </h4>
+                                <h5 class="portfolio__item__content__subtitle">
+                                    <?php echo get_field('meters'); ?> m<sup>2</sup>
+                                </h5>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                }
+                ?>
             </div>
         </div>
 
@@ -253,40 +214,23 @@ get_header();
             <div class="contact__main flex">
                 <div class="contact__main__left">
                     <img class="contact__main__left__logo" src="<?php echo get_bloginfo("stylesheet_directory") . "/assets/logo-contact.svg"; ?>" alt="logo" />
-                    <a href="tel:+4901723477621" class="contact__main__left__item flex flex--start">
+                    <a href="tel:+49<?php echo get_field('phone_number', 14); ?>" class="contact__main__left__item flex flex--start">
                         <img class="img" src="<?php echo get_bloginfo("stylesheet_directory") . "/assets/telephone.svg"; ?>" alt="phone-number" />
-                        01723477621
+                        <?php echo get_field('phone_number', 14); ?>
                     </a>
-                    <a href="mailto:kontakt@team-sieron.de" class="contact__main__left__item flex flex--start">
+                    <a href="mailto:<?php echo get_field('email', 14); ?>" class="contact__main__left__item flex flex--start">
                         <img class="img" src="<?php echo get_bloginfo("stylesheet_directory") . "/assets/email.svg"; ?>" alt="email" />
-                        kontakt@team-sieron.de
+                        <?php echo get_field('email', 14); ?>
                     </a>
                     <div class="contact__main__left__item flex flex--start">
                         <img class="img" src="<?php echo get_bloginfo("stylesheet_directory") . "/assets/location-pin.svg"; ?>" alt="location" />
-                        Langenberger Str. 141,<br/>
-                        42551 Velbert
+                        <?php echo get_field('address', 14); ?>
                     </div>
                 </div>
                 <div class="contact__main__right">
-                    <form>
-                        <label class="label">
-                            Vorname und Nachname:
-                            <input class="input" name="name" />
-                        </label>
-                        <label class="label">
-                            E-Mail-Adresse:
-                            <input class="input" name="email" />
-                        </label>
-                        <label class="label">
-                            Nachricht:
-                            <textarea class="input input--textarea" name="message">
-
-                        </textarea>
-                        </label>
-                        <button class="btn btn--submit">
-                            Send
-                        </button>
-                    </form>
+                    <?php
+                        echo do_shortcode('[contact-form-7 id="a2ac9af" title="Formularz 1"]');
+                    ?>
                 </div>
             </div>
         </div>

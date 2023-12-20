@@ -139,6 +139,7 @@ add_action( 'widgets_init', 'team_sieron_widgets_init' );
  */
 function team_sieron_scripts() {
 	wp_enqueue_style( 'team-sieron-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'team-sieron-style-mobile', get_template_directory_uri() . '/mobile.css', array(), _S_VERSION );
 	wp_style_add_data( 'team-sieron-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'team-sieron-main', get_template_directory_uri() . '/js/main.js', array(), _S_VERSION, true );
